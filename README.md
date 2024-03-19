@@ -22,6 +22,7 @@ while left < right:
         elif diff > target:
             right = mid
 ```
+优化：该程序二分法的初始跨度为365天, 程序会根据每次最终确定的天数动态调整二分法的边界，固定为两次查询before时间差距的二倍
 # 测试
 wspx少量  
 <div  align="center">    
