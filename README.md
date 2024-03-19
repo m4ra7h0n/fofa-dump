@@ -23,6 +23,15 @@ while left < right:
             right = mid
 ```
 优化：该程序二分法的初始跨度为365天, 程序会根据每次最终确定的天数动态调整二分法的边界，固定为两次查询before时间差距的二倍
+```python
+# 上一次查询的before的时间戳
+last_timestamp_before = timestamp_before
+# 本次查询的before的时间戳
+timestamp_before = time_format_to_timestamp(decrease(timestamp_before, left))
+# 二者的差值的二倍设置为右边界
+# 寻找差值最接近1w的下一个before的时间, 使用二分法, right为上次查找和本次查找时间差值的二倍 (稍微智能一些)
+o_right = diff_timestamp(last_timestamp_before, timestamp_before) * 2
+```
 # 测试
 wspx少量  
 <div  align="center">    
